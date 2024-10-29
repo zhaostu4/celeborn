@@ -385,6 +385,7 @@ public class SortBasedShuffleWriter<K, V, C> extends ShuffleWriter<K, V> {
           }
           return Option.apply(mapStatus);
         } else {
+          pusher.termination();
           return Option.empty();
         }
       }

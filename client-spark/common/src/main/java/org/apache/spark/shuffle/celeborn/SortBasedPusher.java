@@ -501,6 +501,11 @@ public class SortBasedPusher extends MemoryConsumer {
     return this.pushSortMemoryThreshold;
   }
 
+  public void termination() {
+    cleanupResources();
+    dataPusher.termination();
+  }
+
   public void close() throws IOException {
     cleanupResources();
     try {

@@ -163,6 +163,14 @@ public class DataPusher {
     }
   }
 
+  public void termination() {
+    terminated = true;
+    dataPushQueue.clear();
+    if (pushThread.isAlive()) {
+      pushThread.interrupt();
+    }
+  }
+
   public void waitOnTermination() throws IOException, InterruptedException {
     try {
       idleLock.lockInterruptibly();

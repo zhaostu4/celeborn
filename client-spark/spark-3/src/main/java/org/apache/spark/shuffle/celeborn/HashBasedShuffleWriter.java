@@ -389,6 +389,7 @@ public class HashBasedShuffleWriter<K, V, C> extends ShuffleWriter<K, V> {
           }
           return Option.apply(mapStatus);
         } else {
+          dataPusher.termination();
           return Option.empty();
         }
       }
